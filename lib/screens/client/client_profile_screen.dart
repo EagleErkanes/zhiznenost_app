@@ -261,40 +261,46 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: SizedBox(
-                width: 50,
-                height: 50,
+                width: 46,
+                height: 46,
                 child: Image.asset(
                   'assets/images/logo_icon.jpg',
                   fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => const Icon(Icons.fitness_center, color: AppColors.primaryGreen, size: 32),
+                  errorBuilder: (_, __, ___) => const Icon(Icons.fitness_center, color: AppColors.primaryGreen, size: 30),
                 ),
               ),
             ),
-            const SizedBox(width: 14),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'ЖИЗНЕНОСТ',
-                  style: TextStyle(
-                    fontSize: 19,
-                    fontWeight: FontWeight.w900,
-                    letterSpacing: 1.2,
-                    color: AppColors.textPrimary,
+            const SizedBox(width: 12),
+            const Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'ЖИЗНЕНОСТ',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 1.0,
+                      color: AppColors.textPrimary,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
-                ),
-                SizedBox(height: 2),
-                Text(
-                  'МОЯТ ПРОФИЛ',
-                  style: TextStyle(
-                    fontSize: 9.5,
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 0.6,
-                    color: AppColors.primaryGreen,
+                  SizedBox(height: 2),
+                  Text(
+                    'МОЯТ ПРОФИЛ',
+                    style: TextStyle(
+                      fontSize: 9.0,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.5,
+                      color: AppColors.primaryGreen,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
@@ -307,7 +313,7 @@ class _ClientProfileScreenState extends State<ClientProfileScreen> {
             icon: const Icon(Icons.logout_rounded, color: AppColors.textSecondary),
             onPressed: _handleSignOut,
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 4),
         ],
       ),
       body: _isLoading || _isDeleting
