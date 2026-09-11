@@ -1,0 +1,44 @@
+name: zhiznenost_app
+description: "Система за управление на тренировъчен център 'Жизненост' "
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  supabase_flutter: ^2.17.2
+  fl_chart: ^1.2.0
+  intl: ^0.20.3
+  google_fonts: ^8.2.1
+  table_calendar: ^3.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo_icon.jpg"
+  min_sdk_android: 21
+  adaptive_icon_background: "#121212"
+  adaptive_icon_foreground: "assets/images/logo_icon.jpg"
+  adaptive_icon_foreground_inset: 16
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo.jpg
+    - assets/images/logo_icon.jpg
+    - assets/images/logo_text.png

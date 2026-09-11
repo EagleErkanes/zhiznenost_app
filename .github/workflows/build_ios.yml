@@ -1,0 +1,36 @@
+name: Build iOS IPA
+
+on:
+  workflow_dispatch: # Позволява ти ръчно стартиране с един бутон
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Build IPA (Unsigned)
+        run: flutter build ipa --no-codesign
+
+      - name: Package Payload into IPA
+        run: |
+          mkdir -p build/ios/iphoneos/Payload
+          mv build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/
+          cd build/ios/iphoneos
+          zip -r zhiznenost_app.ipa Payload
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhiznenost-ios-app
+          path: build/ios/iphoneos/zhiznenost_app.ipa
